@@ -144,18 +144,5 @@ Authentication guard differs by route group:
 | GET    | `/v1/admin/dashboard/stats`       | Aggregated dashboard counters                   |
 | POST   | `/v1/admin/dashboard/logs`        | Retrieve dashboard log entries (filters/paging) |
 
-## Development Tips
 
-- Enable verbose logging by raising `LOG_LEVEL` to `debug` in `.env`.
-- Use the `isDemo=true` query parameter on many admin routes to target the demo database (`DEMO_MONGODB_URI`).
-- Static assets or templates are copied to `lib/` during build via `npm run copy:templates`.
-- When packaging for distribution (`npm run pkg`), ensure `.env` and `config.json` exist as required in `package.json`.
 
-## Troubleshooting
-
-- **Mongo connection errors**: confirm `MONGODB_URI` and network reachability.
-- **S3/MinIO failures**: verify credentials, endpoint, port, and whether `S3_SSL` should be `true` or `false` for MinIO.
-- **Email sending issues**: check Resend API key and sender domain verification.
-- **Invalid tokens**: refresh via `/v1/client/refresh` or `/v1/admin/refresh`, ensuring refresh tokens are stored client-side.
-
-For deeper controller-level behaviour, refer to the implementations under `src/controller` and `src/service`.
